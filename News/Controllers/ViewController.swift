@@ -39,13 +39,15 @@ class ViewController: UIViewController {
     
     func getNewsData(url: String) {
         print(url)
+        newsArray = []
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if response.result.isSuccess {
+                
+                
                 print("Success! Got the News data")
-//                print(response.result.value!)
                 
                 let newsJSON : JSON = JSON(response.result.value!)
-//                print(newsJSON)
+                
                 self.updateNewsData(json: newsJSON)
                 
                 self.connector()
@@ -68,7 +70,6 @@ class ViewController: UIViewController {
     
             for counter in 0..<dataJson.count {
                 let newNews = News()
-                print(dataJson[counter]["title"])
                 newNews.title = dataJson[counter]["title"].stringValue
                 newNews.body = dataJson[counter]["description"].stringValue
                 newNews.image = dataJson[counter]["urlToImage"].stringValue

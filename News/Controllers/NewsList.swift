@@ -21,6 +21,8 @@ class NewsList: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         newsTableView.dataSource = self
         
         newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "customNewsCell")
+        
+        configureTableView()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +45,9 @@ class NewsList: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         return dataPassedOver!.count
     }
     
-    
-    
+    func configureTableView() {
+        newsTableView.rowHeight = 312
+        newsTableView.estimatedRowHeight = 350
+    }
     
 }
