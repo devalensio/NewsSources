@@ -233,6 +233,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="News Sources" id="IqZ-o2-BRy"/>
+                    <connections>
+                        <segue destination="M1l-e1-Oo0" kind="push" identifier="GoToListPage" id="jjq-11-fJC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +250,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VwF-MH-ula">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VwF-MH-ula" customClass="CustomNewsCell" customModule="News" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VwF-MH-ula" id="ls2-XJ-2Ra">
@@ -262,6 +265,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="J0v-Hr-SPg"/>
+                    <connections>
+                        <outlet property="newsTableView" destination="mPi-4f-VDf" id="rr3-A3-yFO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oT6-I0-GdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

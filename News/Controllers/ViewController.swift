@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
     
+    var newsArray : [News] = [News]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,16 +42,56 @@ class ViewController: UIViewController {
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if response.result.isSuccess {
                 print("Success! Got the News data")
-                print(response.result.value!)
+//                print(response.result.value!)
                 
                 let newsJSON : JSON = JSON(response.result.value!)
-                print(newsJSON)
-//                self.updateWeatherData(json: weatherJSON)
+//                print(newsJSON)
+                self.updateNewsData(json: newsJSON)
+                
+                self.connector()
                 
             } else {
                 print("Error \(String(describing: response.result.error))")
-//                self.cityLabel.text = "Connection Issues "
+                
             }
+        }
+    }
+    
+    func updateNewsData(json: JSON) {
+//        print(json)
+        
+        let dataJson = json["articles"]
+        
+        if json["articles"][0]["title"].string != nil {
+            
+            
+    
+            for counter in 0..<dataJson.count {
+                let newNews = News()
+                print(dataJson[counter]["title"])
+                newNews.title = dataJson[counter]["title"].stringValue
+                newNews.body = dataJson[counter]["description"].stringValue
+                newNews.image = dataJson[counter]["urlToImage"].stringValue
+                newNews.url = dataJson[counter]["url"].stringValue
+                newsArray.append(newNews)
+
+                
+            }
+        }
+    }
+    
+    func connector() {
+        performSegue(withIdentifier: "GoToListPage", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToListPage" {
+            
+            let destinationVC = segue.destination as! NewsList
+            
+            destinationVC.dataPassedOver = newsArray
+            
         }
     }
     

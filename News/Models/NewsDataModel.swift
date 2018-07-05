@@ -7,3 +7,10 @@
 //
 
 import UIKit
+
+class News {
+    var title : String = ""
+    var body : String = ""
+    var image : String = ""
+    var url : String = ""
+}
