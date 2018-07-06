@@ -271,11 +271,43 @@
                     </navigationItem>
                     <connections>
                         <outlet property="newsTableView" destination="mPi-4f-VDf" id="rr3-A3-yFO"/>
+                        <segue destination="FS2-Ea-SkC" kind="push" identifier="GoToWebView" id="4sz-TE-vni"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oT6-I0-GdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1956" y="-564"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="30O-67-4zp">
+            <objects>
+                <viewController id="FS2-Ea-SkC" customClass="WebView" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rTd-GC-SpK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyO-N2-QA5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dyO-N2-QA5" firstAttribute="top" secondItem="UgG-pH-Cmn" secondAttribute="top" id="0Pj-Lq-8p8"/>
+                            <constraint firstItem="dyO-N2-QA5" firstAttribute="bottom" secondItem="UgG-pH-Cmn" secondAttribute="bottom" id="ICE-Cf-cP9"/>
+                            <constraint firstItem="dyO-N2-QA5" firstAttribute="trailing" secondItem="UgG-pH-Cmn" secondAttribute="trailing" id="TwO-Ef-2x6"/>
+                            <constraint firstItem="dyO-N2-QA5" firstAttribute="leading" secondItem="UgG-pH-Cmn" secondAttribute="leading" id="raE-8q-z2R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UgG-pH-Cmn"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Web" id="gWs-Zz-2vN"/>
+                    <connections>
+                        <outlet property="webview" destination="dyO-N2-QA5" id="yLe-Vw-CjW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azS-cu-Kkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2813.5999999999999" y="-564.46776611694156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a62-Eb-box">
