@@ -264,7 +264,11 @@
                             <outlet property="delegate" destination="M1l-e1-Oo0" id="ZcR-Bz-M5N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home" id="J0v-Hr-SPg"/>
+                    <navigationItem key="navigationItem" title="Home" id="J0v-Hr-SPg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="5Re-B6-SI5">
+                            <color key="tintColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="newsTableView" destination="mPi-4f-VDf" id="rr3-A3-yFO"/>
                     </connections>

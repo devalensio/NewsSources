@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class ViewController: UIViewController {
     
@@ -38,11 +39,16 @@ class ViewController: UIViewController {
     }
     
     func getNewsData(url: String) {
-        print(url)
+        
+        SVProgressHUD.show()
+        
         newsArray = []
+        
         Alamofire.request(url, method: .get).responseJSON { (response) in
+            
             if response.result.isSuccess {
                 
+                SVProgressHUD.dismiss()
                 
                 print("Success! Got the News data")
                 
@@ -53,6 +59,7 @@ class ViewController: UIViewController {
                 self.connector()
                 
             } else {
+                
                 print("Error \(String(describing: response.result.error))")
                 
             }
@@ -60,15 +67,13 @@ class ViewController: UIViewController {
     }
     
     func updateNewsData(json: JSON) {
-//        print(json)
         
         let dataJson = json["articles"]
         
         if json["articles"][0]["title"].string != nil {
-            
-            
     
             for counter in 0..<dataJson.count {
+                
                 let newNews = News()
                 newNews.title = dataJson[counter]["title"].stringValue
                 newNews.body = dataJson[counter]["description"].stringValue
@@ -76,17 +81,18 @@ class ViewController: UIViewController {
                 newNews.url = dataJson[counter]["url"].stringValue
                 newsArray.append(newNews)
 
-                
             }
         }
     }
     
     func connector() {
+        
         performSegue(withIdentifier: "GoToListPage", sender: self)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "GoToListPage" {
             
             let destinationVC = segue.destination as! NewsList
@@ -95,7 +101,6 @@ class ViewController: UIViewController {
             
         }
     }
-    
     
 }
 

@@ -37,7 +37,7 @@ class NewsList: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         
         cell.bodyNews.text = dataPassedOver![indexPath.row].body
         cell.titleNews.text = dataPassedOver![indexPath.row].title
-//        cell.imageNews.text = dataPassedOver![indexPath.row].image
+
         return cell
     }
     
