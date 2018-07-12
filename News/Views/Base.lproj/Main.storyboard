@@ -39,7 +39,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n84-mt-5hG" userLabel="1 articles">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n84-mt-5hG" userLabel="1 articles">
                                                         <rect key="frame" x="8" y="131" width="149" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                         <state key="normal" title="View articles"/>
@@ -70,7 +70,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ge2-fa-AzD" secondAttribute="bottom" constant="8" id="6Gu-dQ-omW"/>
                                             <constraint firstAttribute="trailing" secondItem="OKr-Vn-cqj" secondAttribute="trailing" constant="7.5" id="8Th-bO-Q2S"/>
@@ -106,7 +106,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKo-yb-8JN" userLabel="2 articles">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKo-yb-8JN" userLabel="2 articles">
                                                         <rect key="frame" x="8" y="134" width="148.5" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                         <state key="normal" title="View articles"/>
@@ -130,7 +130,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="5r0-K6-wbw" secondAttribute="bottom" constant="8" id="9q1-gW-z4A"/>
                                             <constraint firstItem="7LO-h7-xxl" firstAttribute="leading" secondItem="M3i-MM-fW6" secondAttribute="leading" constant="8" id="BU4-Yo-Xep"/>
@@ -165,7 +165,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-HI-Ibz" userLabel="3 articles">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-HI-Ibz" userLabel="3 articles">
                                                         <rect key="frame" x="8" y="134" width="148.5" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                         <state key="normal" title="View articles"/>
@@ -191,7 +191,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="3gI-x7-YfX" firstAttribute="leading" secondItem="5LN-Zm-EZT" secondAttribute="trailing" constant="8" id="2Qw-I7-9Ke"/>
                                             <constraint firstAttribute="trailing" secondItem="3gI-x7-YfX" secondAttribute="trailing" constant="8" id="Cud-MH-Xho"/>
@@ -234,6 +234,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="News Sources" id="IqZ-o2-BRy"/>
                     <connections>
+                        <outlet property="button" destination="n84-mt-5hG" id="ZGn-ZY-DRz"/>
                         <segue destination="M1l-e1-Oo0" kind="push" identifier="GoToListPage" id="jjq-11-fJC"/>
                     </connections>
                 </viewController>
@@ -249,9 +250,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="1S8-NB-0JG">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="M1l-e1-Oo0" id="HZ9-Rn-5Jf"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VwF-MH-ula" customClass="CustomNewsCell" customModule="News" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VwF-MH-ula" id="ls2-XJ-2Ra">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -260,21 +269,26 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="M1l-e1-Oo0" id="6fP-RO-dO6"/>
-                            <outlet property="delegate" destination="M1l-e1-Oo0" id="ZcR-Bz-M5N"/>
+                            <outlet property="dataSource" destination="M1l-e1-Oo0" id="skI-1s-KVM"/>
+                            <outlet property="delegate" destination="M1l-e1-Oo0" id="rIq-IA-Ic4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home" id="J0v-Hr-SPg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="5Re-B6-SI5">
-                            <color key="tintColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" id="J0v-Hr-SPg"/>
                     <connections>
                         <outlet property="newsTableView" destination="mPi-4f-VDf" id="rr3-A3-yFO"/>
+                        <outlet property="searchDisplayController" destination="32T-N6-95V" id="Slc-He-dHX"/>
                         <segue destination="FS2-Ea-SkC" kind="push" identifier="GoToWebView" id="4sz-TE-vni"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oT6-I0-GdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="32T-N6-95V">
+                    <connections>
+                        <outlet property="delegate" destination="M1l-e1-Oo0" id="u5Z-Jb-bgz"/>
+                        <outlet property="searchContentsController" destination="M1l-e1-Oo0" id="ZHC-9X-GBM"/>
+                        <outlet property="searchResultsDataSource" destination="M1l-e1-Oo0" id="0iK-pe-aEg"/>
+                        <outlet property="searchResultsDelegate" destination="M1l-e1-Oo0" id="Z7z-wL-xBC"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1956" y="-564"/>
         </scene>

@@ -18,7 +18,7 @@ class WebView: UIViewController {
         super.viewDidLoad()
         
         let newUrl = url!.replacingOccurrences(of: "http", with: "https")
-        
+
         let data = URL(string: newUrl)
         
         webview.loadRequest(URLRequest(url: data!))

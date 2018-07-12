@@ -13,7 +13,9 @@ import SVProgressHUD
 
 class ViewController: UIViewController {
     
-    var newsArray : [News] = [News]()
+    @IBOutlet weak var button: UIButton!
+    
+    var newsUrl : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,58 +40,66 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     func getNewsData(url: String) {
         
-        SVProgressHUD.show()
-        
-        newsArray = []
-        
-        Alamofire.request(url, method: .get).responseJSON { (response) in
-            
-            if response.result.isSuccess {
-                
-                SVProgressHUD.dismiss()
-                
-                print("Success! Got the News data")
-                
-                let newsJSON : JSON = JSON(response.result.value!)
-                
-                self.updateNewsData(json: newsJSON)
-                
-                self.connector()
-                
-            } else {
-                
-                print("Error \(String(describing: response.result.error))")
-                
-            }
-        }
-    }
-    
-    func updateNewsData(json: JSON) {
-        
-        let dataJson = json["articles"]
-        
-        if json["articles"][0]["title"].string != nil {
-    
-            for counter in 0..<dataJson.count {
-                
-                let newNews = News()
-                newNews.title = dataJson[counter]["title"].stringValue
-                newNews.body = dataJson[counter]["description"].stringValue
-                newNews.image = dataJson[counter]["urlToImage"].stringValue
-                newNews.url = dataJson[counter]["url"].stringValue
-                newsArray.append(newNews)
-
-            }
-        }
-    }
-    
-    func connector() {
+        newsUrl = url
         
         performSegue(withIdentifier: "GoToListPage", sender: self)
+
         
+        
+//        SVProgressHUD.show()
+//
+//        newsArray = []
+//
+//        Alamofire.request(url, method: .get).responseJSON { (response) in
+//
+//            if response.result.isSuccess {
+//
+//                SVProgressHUD.dismiss()
+//
+//                print("Success! Got the News data")
+//
+//                let newsJSON : JSON = JSON(response.result.value!)
+//
+//                self.updateNewsData(json: newsJSON)
+//
+//                self.connector()
+//
+//            } else {
+//
+//                print("Error \(String(describing: response.result.error))")
+//
+//            }
+//        }
     }
+    
+//    func updateNewsData(json: JSON) {
+//
+//        let dataJson = json["articles"]
+//
+//        if json["articles"][0]["title"].string != nil {
+//
+//            for counter in 0..<dataJson.count {
+//
+//                let newNews = News()
+//                newNews.title = dataJson[counter]["title"].stringValue
+//                newNews.body = dataJson[counter]["description"].stringValue
+//                newNews.image = dataJson[counter]["urlToImage"].stringValue
+//                newNews.url = dataJson[counter]["url"].stringValue
+//                newsArray.append(newNews)
+//
+//            }
+//        }
+//    }
+
+//    func connector() {
+//
+//        performSegue(withIdentifier: "GoToListPage", sender: self)
+//
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -97,7 +107,7 @@ class ViewController: UIViewController {
             
             let destinationVC = segue.destination as! NewsList
             
-            destinationVC.dataPassedOver = newsArray
+            destinationVC.urlPassedOver = newsUrl
             
         }
     }
