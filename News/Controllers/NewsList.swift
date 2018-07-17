@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import Kingfisher
 
 class NewsList: UITableViewController  {
     
@@ -40,13 +41,10 @@ class NewsList: UITableViewController  {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customNewsCell", for: indexPath) as! CustomNewsCell
         
-        if let url = NSURL(string: newsArray[indexPath.row].image) {
-            if let data = NSData(contentsOf: url as URL) {
-                cell.imageNews.contentMode = UIViewContentMode.scaleToFill
-                cell.imageNews.image = UIImage(data: data as Data)
-            }
-        }
+        let url = URL(string: newsArray[indexPath.row].image)
         
+        cell.imageNews.contentMode = UIViewContentMode.scaleToFill
+        cell.imageNews.kf.setImage(with: url)
         cell.bodyNews.text = newsArray[indexPath.row].body
         cell.titleNews.text = newsArray[indexPath.row].title
         
@@ -59,7 +57,7 @@ class NewsList: UITableViewController  {
         
     }
     
-    func loadNews() {
+    func loadNews(with parameters: Array<News> = []) {
         
         Alamofire.request(urlPassedOver!, method: .get).responseJSON { (response) in
             
@@ -69,7 +67,17 @@ class NewsList: UITableViewController  {
                 
                 let newsJSON : JSON = JSON(response.result.value!)
                 
-                self.updateNewsData(json: newsJSON)
+                if parameters.count != 0 {
+                    
+                    self.newsArray = parameters
+                    
+                } else {
+                    
+                    self.newsArray = []
+                    
+                    self.updateNewsData(json: newsJSON)
+                    
+                }
                 
                 SVProgressHUD.dismiss()
                 
@@ -133,18 +141,36 @@ class NewsList: UITableViewController  {
 
 }
 
-//extension NewsList: UISearchBarDelegate {
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//
-//        let filteredNews = dataPassedOver?.filter { $0.title.lowercased().contains(searchBar.text!.lowercased()) }
-//
-//        loadItems(with: filteredNews!)
-//
-//
-//    }
-//
-//}
+extension NewsList: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        let filteredNews = newsArray.filter { $0.title.lowercased().contains(searchBar.text!.lowercased()) }
+
+        loadNews(with: filteredNews)
+        
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            
+            searchBar.showsCancelButton = false
+            
+            loadNews()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+        
+    }
+    
+}
 
 
 

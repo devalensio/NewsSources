@@ -42,7 +42,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n84-mt-5hG" userLabel="1 articles">
                                                         <rect key="frame" x="8" y="131" width="149" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                                        <state key="normal" title="View articles"/>
+                                                        <state key="normal" title="View Articles">
+                                                            <color key="titleColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="asd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fuh-fY-DdD"/>
                                                         </connections>
@@ -109,7 +111,9 @@
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKo-yb-8JN" userLabel="2 articles">
                                                         <rect key="frame" x="8" y="134" width="148.5" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                                        <state key="normal" title="View articles"/>
+                                                        <state key="normal" title="View Articles">
+                                                            <color key="titleColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="asd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="298-Vw-j43"/>
                                                         </connections>
@@ -168,7 +172,9 @@
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-HI-Ibz" userLabel="3 articles">
                                                         <rect key="frame" x="8" y="134" width="148.5" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                                        <state key="normal" title="View articles"/>
+                                                        <state key="normal" title="View Articles">
+                                                            <color key="titleColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="asd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mdd-ZT-2ww"/>
                                                         </connections>
@@ -273,7 +279,7 @@
                             <outlet property="delegate" destination="M1l-e1-Oo0" id="rIq-IA-Ic4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home" id="J0v-Hr-SPg"/>
+                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="J0v-Hr-SPg"/>
                     <connections>
                         <outlet property="newsTableView" destination="mPi-4f-VDf" id="rr3-A3-yFO"/>
                         <outlet property="searchDisplayController" destination="32T-N6-95V" id="Slc-He-dHX"/>
@@ -331,7 +337,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zj5-Wv-V0u">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -351,4 +357,5 @@
         <image name="cnn" width="512" height="512"/>
         <image name="mrr" width="630" height="630"/>
     </resources>
+    <color key="tintColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

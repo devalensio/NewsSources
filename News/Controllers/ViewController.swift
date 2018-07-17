@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import SVProgressHUD
 
 class ViewController: UIViewController {
     
@@ -37,9 +34,10 @@ class ViewController: UIViewController {
             getNewsData(url: "https://newsapi.org/v2/top-headlines?sources=mirror&apiKey=a9259a4e061643a99176bdc73d02126f")
         default:
             break
+            
         }
+        
     }
-    
     
     
     func getNewsData(url: String) {
@@ -48,58 +46,8 @@ class ViewController: UIViewController {
         
         performSegue(withIdentifier: "GoToListPage", sender: self)
 
-        
-        
-//        SVProgressHUD.show()
-//
-//        newsArray = []
-//
-//        Alamofire.request(url, method: .get).responseJSON { (response) in
-//
-//            if response.result.isSuccess {
-//
-//                SVProgressHUD.dismiss()
-//
-//                print("Success! Got the News data")
-//
-//                let newsJSON : JSON = JSON(response.result.value!)
-//
-//                self.updateNewsData(json: newsJSON)
-//
-//                self.connector()
-//
-//            } else {
-//
-//                print("Error \(String(describing: response.result.error))")
-//
-//            }
-//        }
     }
     
-//    func updateNewsData(json: JSON) {
-//
-//        let dataJson = json["articles"]
-//
-//        if json["articles"][0]["title"].string != nil {
-//
-//            for counter in 0..<dataJson.count {
-//
-//                let newNews = News()
-//                newNews.title = dataJson[counter]["title"].stringValue
-//                newNews.body = dataJson[counter]["description"].stringValue
-//                newNews.image = dataJson[counter]["urlToImage"].stringValue
-//                newNews.url = dataJson[counter]["url"].stringValue
-//                newsArray.append(newNews)
-//
-//            }
-//        }
-//    }
-
-//    func connector() {
-//
-//        performSegue(withIdentifier: "GoToListPage", sender: self)
-//
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -110,6 +58,7 @@ class ViewController: UIViewController {
             destinationVC.urlPassedOver = newsUrl
             
         }
+        
     }
     
 }
